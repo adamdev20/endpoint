@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Text Display</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Share Text via URL</h1>
+            <p class="subtitle">Enter text below to generate a shareable link</p>
+            
+            <div class="input-group">
+                <input type="text" id="text-input" placeholder="Type something...">
+                <button id="generate-btn">→</button>
+            </div>
+            
+            <div class="text-display" id="display-text">
+                <span class="placeholder">Your shared text will appear here</span>
+                <span class="content" id="text-content"></span>
+            </div>
+            
+            <div class="url-group">
+                <input type="text" id="url-display" readonly>
+                <button id="copy-btn">Copy</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">Link copied!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
