@@ -1,36 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adam/luki/fajar</title>
+    <title>Blog Pribadi | [Nama Anda]</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <h1>Share Text via URL</h1>
-            <p class="subtitle">Enter text below to generate a shareable link</p>
-            
-            <div class="input-group">
-                <input type="text" id="text-input" placeholder="Type something...">
-                <button id="generate-btn">→</button>
-            </div>
-            
-            <div class="text-display" id="display-text">
-                <span class="placeholder">Your shared text will appear here</span>
-                <span class="content" id="text-content"></span>
-            </div>
-            
-            <div class="url-group">
-                <input type="text" id="url-display" readonly>
-                <button id="copy-btn">Copy</button>
-            </div>
+    <header class="hero-header">
+        <nav>
+            <div class="logo">[Nama/Inisial]</div>
+            <ul class="nav-links">
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#blog">Artikel</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+        <div class="hero-content">
+            <h1>Selamat Datang di Blog Saya</h1>
+            <p>Tempat berbagi pemikiran dan cerita</p>
+            <a href="#blog" class="cta-button">Mulai Membaca</a>
         </div>
-    </div>
+    </header>
 
-    <div class="toast" id="toast">Link copied!</div>
+    <main>
+        <section id="blog" class="blog-section">
+            <h2 class="section-title">Artikel Terbaru</h2>
+            <div class="blog-grid" id="blogContainer">
+                <!-- Artikel akan dimuat via JavaScript -->
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <h2 class="section-title">Tentang Saya</h2>
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="https://via.placeholder.com/400x400" alt="Profil">
+                    </div>
+                    <div class="about-text">
+                        <p>Halo, saya [Nama Anda]. Blog ini adalah wadah untuk mengekspresikan pemikiran saya tentang berbagai topik.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <p>&copy; 2023 Blog Pribadi [Nama Anda]. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
