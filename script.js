@@ -1,67 +1,50 @@
+// Sample blog data
+const blogPosts = [
+    {
+        title: "Memulai Perjalanan Menulis",
+        excerpt: "Bagaimana saya memulai kebiasaan menulis dan manfaat yang didapat...",
+        date: "15 Juni 2023"
+    },
+    {
+        title: "Belajar Teknologi Terkini",
+        excerpt: "Pengalaman belajar teknologi baru dan tips untuk pemula...",
+        date: "10 Juni 2023"
+    },
+    {
+        title: "Refleksi Tahun Ini",
+        excerpt: "Catatan perjalanan dan pelajaran yang saya dapatkan tahun ini...",
+        date: "1 Juni 2023"
+    }
+];
+
+// Load blog posts
 document.addEventListener('DOMContentLoaded', () => {
-    // Elements
-    const textInput = document.getElementById('text-input');
-    const generateBtn = document.getElementById('generate-btn');
-    const copyBtn = document.getElementById('copy-btn');
-    const textContent = document.getElementById('text-content');
-    const placeholder = document.querySelector('.placeholder');
-    const urlDisplay = document.getElementById('url-display');
-    const toast = document.getElementById('toast');
+    const blogContainer = document.getElementById('blogContainer');
+    
+    blogPosts.forEach(post => {
+        const article = document.createElement('article');
+        article.className = 'blog-card';
+        article.innerHTML = `
+            <h3>${post.title}</h3>
+            <p class="post-date">${post.date}</p>
+            <p>${post.excerpt}</p>
+            <a href="#" class="read-more">Baca Selengkapnya →</a>
+        `;
+        blogContainer.appendChild(article);
+    });
 
-    // Check URL for text parameter
-    const params = new URLSearchParams(window.location.search);
-    const urlText = params.get('text');
-
-    if (urlText) {
-        showText(decodeURIComponent(urlText));
-        textInput.value = decodeURIComponent(urlText);
-        updateUrlDisplay();
-    }
-
-    // Event listeners
-    generateBtn.addEventListener('click', generateUrl);
-    copyBtn.addEventListener('click', copyUrl);
-    textInput.addEventListener('keypress', (e) => e.key === 'Enter' && generateUrl());
-
-    // Functions
-    function generateUrl() {
-        const text = textInput.value.trim();
-        if (!text) return;
-        
-        const encodedText = encodeURIComponent(text);
-        const newUrl = `${window.location.origin}${window.location.pathname}?text=${encodedText}`;
-        
-        window.history.pushState({}, '', newUrl);
-        showText(text);
-        updateUrlDisplay();
-    }
-
-    function showText(text) {
-        textContent.textContent = text;
-        placeholder.style.display = 'none';
-        textContent.style.display = 'block';
-    }
-
-    function updateUrlDisplay() {
-        urlDisplay.value = window.location.href;
-    }
-
-    function copyUrl() {
-        if (!urlDisplay.value) return;
-        
-        navigator.clipboard.writeText(urlDisplay.value)
-            .then(() => {
-                showToast('Link copied!');
-            })
-            .catch(err => {
-                console.error('Copy failed:', err);
-                showToast('Failed to copy');
-            });
-    }
-
-    function showToast(message) {
-        toast.textContent = message;
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2000);
-    }
+    // Back to top button
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 });
