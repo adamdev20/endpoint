@@ -6,178 +6,201 @@
     <title>Blog Pribadi</title>
     <style>
         :root {
-            --primary: #2d3436;
-            --secondary: #636e72;
-            --accent: #0984e3;
-            --light: #dfe6e9;
-            --white: #ffffff;
+            --dark: #1a1a2e;
+            --primary: #16213e;
+            --accent: #0f3460;
+            --light: #e94560;
+            --white: #f5f5f5;
+            --gray: #8d8d8d;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
         }
         
         body {
-            background-color: #f5f5f5;
-            color: var(--primary);
-            line-height: 1.6;
+            background-color: var(--white);
+            color: var(--dark);
+            line-height: 1.8;
+            font-weight: 300;
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
         
-        /* Header Box */
-        .header-box {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 3rem 2rem;
-            border-radius: 8px;
-            margin-bottom: 30px;
+        /* Header */
+        header {
+            padding: 5rem 0 3rem;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
-        .header-box h1 {
+        .site-title {
             font-size: 2.8rem;
-            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
         }
         
-        /* Navigation Box */
-        .nav-box {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        .site-description {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        /* Navigation */
+        nav {
+            margin: 2rem 0 3rem;
         }
         
         .nav-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             list-style: none;
         }
         
         .nav-links a {
-            color: var(--primary);
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 1.05rem;
+            position: relative;
+            padding: 0.3rem 0;
         }
         
-        .nav-links a:hover {
-            background: var(--light);
-            color: var(--accent);
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--light);
+            transition: width 0.3s ease;
         }
         
-        /* Content Boxes */
-        .content-box {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        .nav-links a:hover:after {
+            width: 100%;
         }
         
-        .content-box h2 {
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--light);
+        /* Articles */
+        .article {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
         
-        /* Article Box */
-        .article-box {
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--accent);
-            transition: all 0.3s ease;
+        .article:last-child {
+            border-bottom: none;
         }
         
-        .article-box:hover {
-            background: var(--light);
-            transform: translateX(5px);
-        }
-        
-        .article-box h3 {
+        .article-title {
+            font-size: 1.6rem;
+            font-weight: 400;
             margin-bottom: 0.5rem;
+            color: var(--primary);
         }
         
-        .article-date {
-            color: var(--secondary);
+        .article-meta {
+            color: var(--gray);
             font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .article-excerpt {
             margin-bottom: 1rem;
         }
         
-        /* Footer Box */
-        .footer-box {
-            background: var(--primary);
-            color: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
+        .read-more {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 400;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
             text-align: center;
+            padding: 3rem 0;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 600px) {
+            .site-title {
+                font-size: 2.2rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header Box -->
-        <div class="header-box">
-            <h1>Blog Pribadi</h1>
-            <p>Catatan dan pemikiran sehari-hari</p>
-        </div>
+        <header>
+            <h1 class="site-title">Blog Pribadi</h1>
+            <p class="site-description">Catatan dan pemikiran tentang kehidupan, teknologi, dan hal-hal menarik lainnya</p>
+        </header>
         
-        <!-- Navigation Box -->
-        <div class="nav-box">
+        <nav>
             <ul class="nav-links">
                 <li><a href="#">Beranda</a></li>
-                <li><a href="#artikel">Artikel</a></li>
-                <li><a href="#tentang">Tentang</a></li>
-                <li><a href="#kontak">Kontak</a></li>
+                <li><a href="#">Artikel</a></li>
+                <li><a href="#">Tentang</a></li>
+                <li><a href="#">Kontak</a></li>
             </ul>
-        </div>
+        </nav>
         
-        <!-- Artikel Box -->
-        <div id="artikel" class="content-box">
-            <h2>Artikel Terbaru</h2>
+        <main>
+            <article class="article">
+                <h2 class="article-title">Memulai Hari dengan Lebih Produktif</h2>
+                <div class="article-meta">
+                    <span>20 Juni 2023</span>
+                    <span>•</span>
+                    <span>5 menit membaca</span>
+                </div>
+                <p class="article-excerpt">Bagaimana saya mengubah rutinitas pagi saya untuk meningkatkan produktivitas sepanjang hari. Beberapa tips sederhana yang bisa diterapkan oleh siapapun.</p>
+                <a href="#" class="read-more">Baca selengkapnya →</a>
+            </article>
             
-            <div class="article-box">
-                <h3>Memulai Hari dengan Produktif</h3>
-                <p class="article-date">20 Juni 2023</p>
-                <p>Bagaimana saya mengatur rutinitas pagi untuk memaksimalkan produktivitas sepanjang hari...</p>
-            </div>
+            <article class="article">
+                <h2 class="article-title">Belajar Teknologi Baru di 2023</h2>
+                <div class="article-meta">
+                    <span>15 Juni 2023</span>
+                    <span>•</span>
+                    <span>8 menit membaca</span>
+                </div>
+                <p class="article-excerpt">Daftar teknologi yang sedang saya pelajari tahun ini dan mengapa saya memilih untuk fokus pada teknologi-teknologi tersebut.</p>
+                <a href="#" class="read-more">Baca selengkapnya →</a>
+            </article>
             
-            <div class="article-box">
-                <h3>Belajar Framework JavaScript</h3>
-                <p class="article-date">15 Juni 2023</p>
-                <p>Pengalaman mempelajari React.js setelah terbiasa dengan vanilla JavaScript...</p>
-            </div>
-        </div>
+            <article class="article">
+                <h2 class="article-title">Refleksi Pertengahan Tahun</h2>
+                <div class="article-meta">
+                    <span>1 Juni 2023</span>
+                    <span>•</span>
+                    <span>6 menit membaca</span>
+                </div>
+                <p class="article-excerpt">Apa yang sudah saya pelajari di paruh pertama tahun 2023 dan target-target untuk enam bulan ke depan.</p>
+                <a href="#" class="read-more">Baca selengkapnya →</a>
+            </article>
+        </main>
         
-        <!-- Tentang Box -->
-        <div id="tentang" class="content-box">
-            <h2>Tentang Saya</h2>
-            <p>Halo! Saya seorang penulis dan pengembang yang senang berbagi pengetahuan melalui tulisan. Blog ini adalah wadah untuk mengekspresikan pemikiran saya tentang berbagai topik yang saya minati.</p>
-        </div>
-        
-        <!-- Kontak Box -->
-        <div id="kontak" class="content-box">
-            <h2>Kontak</h2>
-            <p>Email: contoh@email.com</p>
-            <p>Twitter: @namapengguna</p>
-        </div>
-        
-        <!-- Footer Box -->
-        <div class="footer-box">
-            <p>&copy; 2023 Blog Pribadi. All rights reserved.</p>
-        </div>
+        <footer>
+            <p>© 2023 Blog Pribadi. Dibuat dengan ❤️</p>
+        </footer>
     </div>
 </body>
 </html>
