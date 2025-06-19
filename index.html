@@ -4,148 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Pribadi</title>
-    <style>
-        :root {
-            --dark: #1a1a2e;
-            --primary: #16213e;
-            --accent: #0f3460;
-            --light: #e94560;
-            --white: #f5f5f5;
-            --gray: #8d8d8d;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-        }
-        
-        body {
-            background-color: var(--white);
-            color: var(--dark);
-            line-height: 1.8;
-            font-weight: 300;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            padding: 5rem 0 3rem;
-            text-align: center;
-        }
-        
-        .site-title {
-            font-size: 2.8rem;
-            font-weight: 300;
-            letter-spacing: -1px;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-        
-        .site-description {
-            font-size: 1.1rem;
-            color: var(--gray);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        
-        /* Navigation */
-        nav {
-            margin: 2rem 0 3rem;
-        }
-        
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: var(--dark);
-            text-decoration: none;
-            font-size: 1.05rem;
-            position: relative;
-            padding: 0.3rem 0;
-        }
-        
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--light);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover:after {
-            width: 100%;
-        }
-        
-        /* Articles */
-        .article {
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-        
-        .article:last-child {
-            border-bottom: none;
-        }
-        
-        .article-title {
-            font-size: 1.6rem;
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-        
-        .article-meta {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .article-excerpt {
-            margin-bottom: 1rem;
-        }
-        
-        .read-more {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 400;
-            display: inline-block;
-            margin-top: 0.5rem;
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 3rem 0;
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-        
-        @media (max-width: 600px) {
-            .site-title {
-                font-size: 2.2rem;
-            }
-            
-            .nav-links {
-                gap: 1rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -156,51 +15,72 @@
         
         <nav>
             <ul class="nav-links">
-                <li><a href="#">Beranda</a></li>
-                <li><a href="#">Artikel</a></li>
-                <li><a href="#">Tentang</a></li>
-                <li><a href="#">Kontak</a></li>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#artikel">Artikel</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#kontak">Kontak</a></li>
             </ul>
         </nav>
         
         <main>
-            <article class="article">
-                <h2 class="article-title">Memulai Hari dengan Lebih Produktif</h2>
-                <div class="article-meta">
-                    <span>20 Juni 2023</span>
-                    <span>•</span>
-                    <span>5 menit membaca</span>
-                </div>
-                <p class="article-excerpt">Bagaimana saya mengubah rutinitas pagi saya untuk meningkatkan produktivitas sepanjang hari. Beberapa tips sederhana yang bisa diterapkan oleh siapapun.</p>
-                <a href="#" class="read-more">Baca selengkapnya →</a>
-            </article>
+            <section id="beranda" class="section active">
+                <h2 class="section-title">Selamat Datang</h2>
+                <p class="welcome-text">Ini adalah blog pribadi saya tempat berbagi pemikiran dan pengalaman.</p>
+            </section>
             
-            <article class="article">
-                <h2 class="article-title">Belajar Teknologi Baru di 2023</h2>
-                <div class="article-meta">
-                    <span>15 Juni 2023</span>
-                    <span>•</span>
-                    <span>8 menit membaca</span>
-                </div>
-                <p class="article-excerpt">Daftar teknologi yang sedang saya pelajari tahun ini dan mengapa saya memilih untuk fokus pada teknologi-teknologi tersebut.</p>
-                <a href="#" class="read-more">Baca selengkapnya →</a>
-            </article>
+            <section id="artikel" class="section">
+                <article class="article">
+                    <h2 class="article-title">Memulai Hari dengan Lebih Produktif</h2>
+                    <div class="article-meta">
+                        <span>20 Juni 2023</span>
+                        <span>•</span>
+                        <span>5 menit membaca</span>
+                    </div>
+                    <p class="article-excerpt">Bagaimana saya mengubah rutinitas pagi saya untuk meningkatkan produktivitas sepanjang hari.</p>
+                    <a href="#" class="read-more">Baca selengkapnya →</a>
+                </article>
+                
+                <article class="article">
+                    <h2 class="article-title">Belajar Teknologi Baru di 2023</h2>
+                    <div class="article-meta">
+                        <span>15 Juni 2023</span>
+                        <span>•</span>
+                        <span>8 menit membaca</span>
+                    </div>
+                    <p class="article-excerpt">Daftar teknologi yang sedang saya pelajari tahun ini.</p>
+                    <a href="#" class="read-more">Baca selengkapnya →</a>
+                </article>
+            </section>
             
-            <article class="article">
-                <h2 class="article-title">Refleksi Pertengahan Tahun</h2>
-                <div class="article-meta">
-                    <span>1 Juni 2023</span>
-                    <span>•</span>
-                    <span>6 menit membaca</span>
+            <section id="tentang" class="section">
+                <h2 class="section-title">Tentang Saya</h2>
+                <div class="about-content">
+                    <p>Saya seorang penulis dan pengembang yang senang berbagi pengetahuan melalui tulisan.</p>
                 </div>
-                <p class="article-excerpt">Apa yang sudah saya pelajari di paruh pertama tahun 2023 dan target-target untuk enam bulan ke depan.</p>
-                <a href="#" class="read-more">Baca selengkapnya →</a>
-            </article>
+            </section>
+            
+            <section id="kontak" class="section">
+                <h2 class="section-title">Kontak</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Nama Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Pesan Anda" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Kirim Pesan</button>
+                </form>
+            </section>
         </main>
         
         <footer>
             <p>© 2023 Blog Pribadi. Dibuat dengan ❤️</p>
         </footer>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
