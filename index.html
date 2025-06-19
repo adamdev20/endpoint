@@ -1,17 +1,278 @@
+Here's the clean version without comments:
+
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Blog</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Luxury Blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --ivory: #f8f4e9;
+            --gold: #d4af37;
+            --charcoal: #333333;
+            --taupe: #b7a99a;
+            --slate: #6e7f80;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif;
+        }
+
+        body {
+            background-color: var(--ivory);
+            color: var(--charcoal);
+            line-height: 1.8;
+        }
+
+        .luxury-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .luxury-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .luxury-logo {
+            font-size: 2.5rem;
+            letter-spacing: 5px;
+            color: var(--gold);
+        }
+
+        .luxury-nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .luxury-nav a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .luxury-nav a.active,
+        .luxury-nav a:hover {
+            color: var(--gold);
+        }
+
+        .luxury-nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .luxury-nav a.active:after,
+        .luxury-nav a:hover:after {
+            width: 100%;
+        }
+
+        .luxury-main {
+            min-height: 70vh;
+            padding: 60px 0;
+        }
+
+        .luxury-section {
+            display: none;
+        }
+
+        .luxury-section.active {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+
+        .luxury-hero {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .luxury-hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .luxury-hero p {
+            font-size: 1.2rem;
+            color: var(--slate);
+        }
+
+        .luxury-article {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .luxury-article:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .article-date {
+            color: var(--taupe);
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .luxury-article h3 {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: var(--charcoal);
+        }
+
+        .article-excerpt {
+            margin-bottom: 30px;
+            color: var(--slate);
+        }
+
+        .article-full {
+            padding-top: 20px;
+            border-top: 1px dashed var(--taupe);
+            margin-top: 20px;
+            display: none;
+            color: var(--slate);
+        }
+
+        .article-full p {
+            margin-bottom: 20px;
+        }
+
+        .luxury-btn {
+            background: none;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 12px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .luxury-btn:hover {
+            background: var(--gold);
+            color: white;
+        }
+
+        .luxury-btn::after {
+            content: 'Read More';
+        }
+
+        .luxury-btn.expanded::after {
+            content: 'Show Less';
+        }
+
+        .luxury-about {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .luxury-about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .luxury-about p {
+            font-size: 1.2rem;
+            color: var(--slate);
+        }
+
+        .luxury-footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .luxury-footer p {
+            margin-bottom: 20px;
+            color: var(--taupe);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons i {
+            color: var(--taupe);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons i:hover {
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from { 
+                opacity: 0;
+                max-height: 0;
+            }
+            to { 
+                opacity: 1;
+                max-height: 1000px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .luxury-container {
+                padding: 0 20px;
+            }
+            
+            .luxury-header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .luxury-nav {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .luxury-hero h2 {
+                font-size: 2rem;
+            }
+            
+            .luxury-article h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="luxury-container">
-        <!-- Header -->
         <header class="luxury-header">
-            <h1 class="luxury-logo">MindSet</h1>
+            <h1 class="luxury-logo">ELEGANT</h1>
             <nav class="luxury-nav">
                 <a href="#home" class="active">Home</a>
                 <a href="#articles">Articles</a>
@@ -19,9 +280,7 @@
             </nav>
         </header>
 
-        <!-- Main Content -->
         <main class="luxury-main">
-            <!-- Hero Section -->
             <section id="home" class="luxury-section active">
                 <div class="luxury-hero">
                     <h2>Welcome to My Luxury Space</h2>
@@ -29,24 +288,32 @@
                 </div>
             </section>
 
-            <!-- Articles Section -->
             <section id="articles" class="luxury-section">
                 <article class="luxury-article">
                     <div class="article-date">JUN 20, 2023</div>
                     <h3>The Art of Minimal Living</h3>
-                    <p>Discover how less can truly be more in our modern world...</p>
-                    <button class="luxury-btn">Read More</button>
+                    <p class="article-excerpt">Discover how less can truly be more in our modern world...</p>
+                    <div class="article-full">
+                        <p>True luxury lies not in abundance but in carefully curated possessions. The minimalist approach to living emphasizes quality over quantity, where each item in your space serves a purpose or brings joy.</p>
+                        <p>By eliminating the unnecessary, we make room for what truly matters - meaningful experiences, relationships, and personal growth. This philosophy extends beyond physical objects to how we spend our time and energy.</p>
+                        <p>Minimalism isn't about deprivation; it's about intentionality. When we remove the clutter, we create space for beauty, creativity, and peace to enter our lives.</p>
+                    </div>
+                    <button class="luxury-btn read-more-btn"></button>
                 </article>
 
                 <article class="luxury-article">
                     <div class="article-date">JUN 15, 2023</div>
                     <h3>Timeless Design Principles</h3>
-                    <p>Exploring designs that never go out of style...</p>
-                    <button class="luxury-btn">Read More</button>
+                    <p class="article-excerpt">Exploring designs that never go out of style...</p>
+                    <div class="article-full">
+                        <p>Timeless design transcends trends and fads, maintaining its beauty and functionality through decades. These designs share common principles that give them enduring appeal.</p>
+                        <p>First is proportion - the golden ratio appears repeatedly in nature and classic designs. Second is quality materials that age gracefully. Third is functionality - designs that solve real problems never become obsolete.</p>
+                        <p>From Eames chairs to Rolex watches, timeless designs share an understated elegance that avoids being overly decorative or trendy. They represent the perfect balance of form and function.</p>
+                    </div>
+                    <button class="luxury-btn read-more-btn"></button>
                 </article>
             </section>
 
-            <!-- About Section -->
             <section id="about" class="luxury-section">
                 <div class="luxury-about">
                     <h2>About The Author</h2>
@@ -55,7 +322,6 @@
             </section>
         </main>
 
-        <!-- Footer -->
         <footer class="luxury-footer">
             <p>© 2023 Luxury Blog | All Rights Reserved</p>
             <div class="social-icons">
@@ -66,6 +332,60 @@
         </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.luxury-nav a');
+            const sections = document.querySelectorAll('.luxury-section');
+            
+            sections[0].classList.add('active');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    sections.forEach(s => s.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).classList.add('active');
+                    
+                    window.scrollTo({
+                        top: document.getElementById(targetId).offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            const readMoreBtns = document.querySelectorAll('.read-more-btn');
+            readMoreBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const articleFull = this.previousElementSibling;
+                    const isExpanded = articleFull.style.display === 'block';
+                    
+                    if (isExpanded) {
+                        articleFull.style.display = 'none';
+                        this.classList.remove('expanded');
+                    } else {
+                        articleFull.style.display = 'block';
+                        this.classList.add('expanded');
+                        articleFull.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                });
+            });
+            
+            const socialIcons = document.querySelectorAll('.social-icons i');
+            socialIcons.forEach(icon => {
+                icon.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                });
+                icon.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
+```
