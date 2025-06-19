@@ -1,50 +1,63 @@
-// Sample blog data
-const blogPosts = [
-    {
-        title: "Memulai Perjalanan Menulis",
-        excerpt: "Bagaimana saya memulai kebiasaan menulis dan manfaat yang didapat...",
-        date: "15 Juni 2023"
-    },
-    {
-        title: "Belajar Teknologi Terkini",
-        excerpt: "Pengalaman belajar teknologi baru dan tips untuk pemula...",
-        date: "10 Juni 2023"
-    },
-    {
-        title: "Refleksi Tahun Ini",
-        excerpt: "Catatan perjalanan dan pelajaran yang saya dapatkan tahun ini...",
-        date: "1 Juni 2023"
+document.addEventListener('DOMContentLoaded', function() {
+    // Navigation functionality
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('.section');
+    
+    // Set first section as active by default
+    sections[0].classList.add('active');
+    navLinks[0].classList.add('active');
+    
+    // Handle navigation clicks
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove active class from all links and sections
+            navLinks.forEach(l => l.classList.remove('active'));
+            sections.forEach(s => s.classList.remove('active'));
+            
+            // Add active class to clicked link
+            this.classList.add('active');
+            
+            // Show corresponding section
+            const targetId = this.getAttribute('href').substring(1);
+            document.getElementById(targetId).classList.add('active');
+            
+            // Smooth scroll to section
+            document.getElementById(targetId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+    
+    // Form submission
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = this.querySelector('input[type="text"]').value;
+            const email = this.querySelector('input[type="email"]').value;
+            const message = this.querySelector('textarea').value;
+            
+            // Here you would typically send the data to a server
+            console.log('Form submitted:', { name, email, message });
+            
+            // Show success message
+            alert('Pesan Anda telah terkirim! Terima kasih.');
+            
+            // Reset form
+            this.reset();
+        });
     }
-];
-
-// Load blog posts
-document.addEventListener('DOMContentLoaded', () => {
-    const blogContainer = document.getElementById('blogContainer');
     
-    blogPosts.forEach(post => {
-        const article = document.createElement('article');
-        article.className = 'blog-card';
-        article.innerHTML = `
-            <h3>${post.title}</h3>
-            <p class="post-date">${post.date}</p>
-            <p>${post.excerpt}</p>
-            <a href="#" class="read-more">Baca Selengkapnya →</a>
-        `;
-        blogContainer.appendChild(article);
-    });
-
-    // Back to top button
-    const backToTopBtn = document.getElementById('backToTop');
-    
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            backToTopBtn.classList.add('visible');
-        } else {
-            backToTopBtn.classList.remove('visible');
-        }
-    });
-    
-    backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Article read more buttons
+    const readMoreButtons = document.querySelectorAll('.read-more');
+    readMoreButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Artikel akan ditampilkan secara lengkap di sini.');
+        });
     });
 });
